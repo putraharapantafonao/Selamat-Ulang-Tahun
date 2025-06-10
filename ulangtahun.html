@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Selamat Ulang Tahun Bang Ali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff4f4, #ffe4d9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      transition: background 1s;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 700px;
+      padding: 30px;
+      animation: fadeIn 1s ease-in;
+    }
+    .page.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff6fa0;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #ff4785;
+      transform: scale(1.05);
+    }
+    .confetti {
+      font-size: 32px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .header {
+      font-size: 28px;
+      font-weight: 600;
+      color: #d6336c;
+    }
+    .note {
+      font-style: normal;
+      color: #333;
+      max-width: 600px;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman 1 -->
+  <div class="page active" id="page1">
+    <h1 class="header">🎈 Selamat Ulang Tahun Bang Ali Putra Siregar 🎉</h1>
+    <p style="margin-top: 10px;">🎂 24 Juni 2004 — Usia 21 Tahun 🎊</p>
+    <button onclick="tiupLilin()">🕯 Tiup Lilinnya!</button>
+  </div>
+
+  <!-- Halaman 2 -->
+  <div class="page" id="page2">
+    <h1>🥳 Yey! Lilinnya padam!</h1>
+    <p>🎁 Klik untuk ambil kadonya ya Bang 🎁</p>
+    <button onclick="ambilKado()">🎁 Ambil Kadonya</button>
+    <div id="confetti" style="margin-top: 20px;"></div>
+  </div>
+
+  <!-- Halaman 3 -->
+  <div class="page" id="page3">
+    <h2 class="header">🎊 Pilih Hadiahnya 🎊</h2>
+    <button onclick="showKartu()">💌 Kartu Ucapan</button>
+    <button onclick="showAyat()">📖 Ayat Emas</button>
+  </div>
+
+  <!-- Halaman 4 -->
+  <div class="page" id="kartu">
+    <h2>💌 Kartu Ucapan dari Putra</h2>
+    <p class="note">
+      Terima kasih banyak ya, Bang Ali!<br><br>
+      Sudah menjadi Abang PA Putra yang baik, sabar, dan selalu mau membimbing Putra. 🙏<br><br>
+      Putra sangat bersyukur bisa belajar banyak dari Abang.<br><br>
+      Maaf ya Bang, Putra belum bisa kasih hadiah apa-apa... Sekarang masih belum ada uang, jadi Putra coding hadiah ini khusus buat Abang. 🧑‍💻💝<br><br>
+      Meskipun sederhana, semoga Abang bisa melihat niat tulus Putra. Ini Putra buat dari hati. ❤<br><br>
+      Terima kasih sudah menjadi teladan dalam kasih dan ketaatan kepada Tuhan.<br>
+      Tuhan Yesus memberkati Abang selalu—dengan kesehatan, sukacita, dan hati yang makin taat dan dekat kepada-Nya. 🎉🎂🙏<br><br>
+      Sekali lagi, selamat ulang tahun, Bang Ali! 🌟✨
+    </p>
+  </div>
+
+  <!-- Halaman 5 -->
+  <div class="page" id="ayat">
+    <h2>📖 Ayat Emas untuk Bang Ali</h2>
+    <p class="note">
+      "Engkau akan menjadi seperti taman yang diairi dengan baik, seperti mata air yang tidak pernah mengecewakan."<br>
+      <strong>– Yesaya 58:11</strong>
+    </p>
+    <p>✨ Kiranya hidup abang selalu subur, penuh kasih, dan diberkati Tuhan! ✨</p>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function tiupLilin() {
+      setTimeout(() => showPage('page2'), 1000);
+    }
+
+    function ambilKado() {
+      document.getElementById('confetti').innerHTML = "🎉🎈✨💖🎁🎊🎂";
+      setTimeout(() => showPage('page3'), 1800);
+    }
+
+    function showKartu() {
+      showPage('kartu');
+    }
+
+    function showAyat() {
+      showPage('ayat');
+    }
+  </script>
+
+</body>
+</html>
